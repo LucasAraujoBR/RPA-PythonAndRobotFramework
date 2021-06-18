@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.1 on win32)" generated="20210108 23:36:21.130" rpa="false">
+<suite id="s1" name="ExemplosArgumentos" source="C:\Users\lucar\Desktop\Python\Variaveis\ExemplosArgumentos.robot">
+<test id="s1-t1" name="Caso de Teste de exemplo 01">
+<kw name="Uma keyword qualquer 01">
+<kw name="Uma subkeyword com argumentos">
+<arguments>
+<arg>${PESSOA.nome}</arg>
+<arg>${PESSOA.email}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Nome Usuário: ${NOME_USUARIO}</arg>
+</arguments>
+<msg timestamp="20210108 23:36:21.171" level="INFO">Nome Usuário: Lucas Araújo</msg>
+<status status="PASS" starttime="20210108 23:36:21.170" endtime="20210108 23:36:21.171"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Email: ${EMAIL_USUARIO}</arg>
+</arguments>
+<msg timestamp="20210108 23:36:21.171" level="INFO">Email: lucasaraujoti73@gmail.com</msg>
+<status status="PASS" starttime="20210108 23:36:21.171" endtime="20210108 23:36:21.172"></status>
+</kw>
+<status status="PASS" starttime="20210108 23:36:21.169" endtime="20210108 23:36:21.172"></status>
+</kw>
+<kw name="Uma subkeyword com retorno">
+<arguments>
+<arg>${PESSOA.nome}</arg>
+<arg>${PESSOA.idade}</arg>
+</arguments>
+<assign>
+<var>${MENSAGEM_ALERTA}</var>
+</assign>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${IDADE_USUARIO}&lt;18</arg>
+<arg>Não autorizado! O usuário ${NOME_USUARIO} é menor de idade!</arg>
+</arguments>
+<assign>
+<var>${MENSAGEM}</var>
+</assign>
+<msg timestamp="20210108 23:36:21.173" level="INFO">${MENSAGEM} = None</msg>
+<status status="PASS" starttime="20210108 23:36:21.173" endtime="20210108 23:36:21.174"></status>
+</kw>
+<msg timestamp="20210108 23:36:21.174" level="INFO">${MENSAGEM_ALERTA} = None</msg>
+<status status="PASS" starttime="20210108 23:36:21.172" endtime="20210108 23:36:21.174"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${MENSAGEM_ALERTA}</arg>
+</arguments>
+<msg timestamp="20210108 23:36:21.174" level="INFO">None</msg>
+<status status="PASS" starttime="20210108 23:36:21.174" endtime="20210108 23:36:21.174"></status>
+</kw>
+<status status="PASS" starttime="20210108 23:36:21.168" endtime="20210108 23:36:21.175"></status>
+</kw>
+<status status="PASS" starttime="20210108 23:36:21.167" endtime="20210108 23:36:21.175" critical="yes"></status>
+</test>
+<doc>Exemplos de tipos de variáveis: SIMPLES, LISTAS e DICIONÁRIOS</doc>
+<status status="PASS" starttime="20210108 23:36:21.132" endtime="20210108 23:36:21.179"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="ExemplosArgumentos">ExemplosArgumentos</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

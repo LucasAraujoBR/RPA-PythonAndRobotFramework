@@ -1,0 +1,4 @@
+solução de erros:
+* Ativar IMAP 
+* Ativar o uso de apps menos seguros
+* Desativar verificação de IP : https://accounts.google.com/b/0/DisplayUnlockCaptcha

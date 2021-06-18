@@ -1,0 +1,1 @@
+C:\RPA\venv\Scripts\python.exe C:/RPA/shedule.py

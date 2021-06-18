@@ -1,0 +1,9 @@
+
+
+https://rpachallengeocr.azurewebsites.net/
+
+
+
+Bibliotecas para manipular arquivos xls e xlsx:
+pip install openpyxl
+pip install xlrd

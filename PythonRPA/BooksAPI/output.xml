@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.1 on win32)" generated="20210109 01:25:44.786" rpa="false">
+<suite id="s1" name="TestCasesAPIBooks" source="C:\Users\lucar\Desktop\Python\BooksAPI\TestCasesAPIBooks.robot">
+<kw name="conectar a minha API" library="ResourceAPI" type="setup">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>fakeAPI</arg>
+<arg>${URL_API}</arg>
+</arguments>
+<msg timestamp="20210109 01:25:45.001" level="INFO">Creating Session using : alias=fakeAPI, url=https://fakerestapi.azurewebsites.net/api/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210109 01:25:45.000" endtime="20210109 01:25:45.002"></status>
+</kw>
+<status status="PASS" starttime="20210109 01:25:45.000" endtime="20210109 01:25:45.002"></status>
+</kw>
+<test id="s1-t1" name="Buscar a listagem de todos os livros (GET em todos os livros)">
+<kw name="Requisitar todos os livros" library="ResourceAPI">
+<kw name="Get Request" library="RequestsLibrary">
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<arguments>
+<arg>fakeAPI</arg>
+<arg>Books</arg>
+</arguments>
+<assign>
+<var>${RESPOSTAS}</var>
+</assign>
+<msg timestamp="20210109 01:25:45.004" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20210109 01:25:47.016" level="INFO">GET Request : url=https://fakerestapi.azurewebsites.net/api//Books 
+ path_url=/api//Books 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210109 01:25:47.016" level="INFO">GET Response : url=https://fakerestapi.azurewebsites.net/api//Books 
+ status=404, reason=Not Found 
+ headers={'Server': 'Kestrel', 'Date': 'Sat, 09 Jan 2021 04:25:45 GMT', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20210109 01:25:47.016" level="INFO">c:\users\lucar\appdata\local\programs\python\python39\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'fakerestapi.azurewebsites.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20210109 01:25:47.019" level="INFO">${RESPOSTAS} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20210109 01:25:45.004" endtime="20210109 01:25:47.019"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${RESPOSTAS.text}</arg>
+</arguments>
+<msg timestamp="20210109 01:25:47.021" level="INFO"></msg>
+<status status="PASS" starttime="20210109 01:25:47.020" endtime="20210109 01:25:47.022"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${RESPOSTAS}</arg>
+</arguments>
+<msg timestamp="20210109 01:25:47.024" level="INFO">${RESPOSTAS} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20210109 01:25:47.022" endtime="20210109 01:25:47.024"></status>
+</kw>
+<status status="PASS" starttime="20210109 01:25:45.003" endtime="20210109 01:25:47.025"></status>
+</kw>
+<kw name="Conferir o status code" library="ResourceAPI">
+<arguments>
+<arg>404</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${RESPOSTAS.status_code}</arg>
+<arg>${STATUSCODE_DESEJADO}</arg>
+</arguments>
+<msg timestamp="20210109 01:25:47.029" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210109 01:25:47.028" endtime="20210109 01:25:47.029"></status>
+</kw>
+<status status="PASS" starttime="20210109 01:25:47.026" endtime="20210109 01:25:47.029"></status>
+</kw>
+<kw name="Conferir o reason" library="ResourceAPI">
+<arguments>
+<arg>OK</arg>
+</arguments>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${RESPOSTAS.reason}</arg>
+<arg>${REASON_DESEJADO}</arg>
+</arguments>
+<msg timestamp="20210109 01:25:47.033" level="FAIL">Not Found != OK</msg>
+<status status="FAIL" starttime="20210109 01:25:47.031" endtime="20210109 01:25:47.033"></status>
+</kw>
+<status status="FAIL" starttime="20210109 01:25:47.030" endtime="20210109 01:25:47.033"></status>
+</kw>
+<status status="FAIL" starttime="20210109 01:25:45.002" endtime="20210109 01:25:47.034" critical="yes">Not Found != OK</status>
+</test>
+<doc>Documentação da API: https://fakerestapi.azurewebsites.net/index.html</doc>
+<status status="FAIL" starttime="20210109 01:25:44.789" endtime="20210109 01:25:47.038"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="TestCasesAPIBooks">TestCasesAPIBooks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210109 01:25:45.004" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
